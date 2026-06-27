@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ U-Sho — Open Format DJ | Hip Hop, Rock, Top 40, EDM &amp; More</title>
+<meta name="description" content="DJ U-Sho (pronounced 'you-show') is an open format DJ based in St Louis, MO, with 30 years of experience spinning hip hop, rock, Top 40, EDM, country and more. Available for weddings, clubs, and private events.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+
+  .hero {
+    padding: 90px 0 70px;
+    border-bottom: 1px solid var(--border-soft);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-waveform {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0 4%;
+    opacity: 0.07;
+    pointer-events: none;
+  }
+
+  .hero-waveform span {
+    width: 2.4%;
+    background: var(--accent);
+    border-radius: 2px 2px 0 0;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  .hero-text h1 {
+    font-size: clamp(40px, 7vw, 68px);
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+
+  .hero-pronounce {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    color: var(--accent-text-on-dark);
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .hero-meta {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero-sub {
+    margin-top: 28px;
+    font-size: 19px;
+    color: var(--text);
+    max-width: 560px;
+  }
+
+  .hero-cta-row {
+    margin-top: 32px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .crate {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .crate-tab {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--accent-dim);
+    padding: 10px 16px 8px;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .crate-tab:hover {
+    border-top-color: var(--accent);
+    color: #fff;
+  }
+
+  .timeline {
+    border-left: 1px solid var(--border);
+    margin-left: 6px;
+  }
+
+  .timeline-item {
+    position: relative;
+    padding: 0 0 40px 32px;
+  }
+
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 4px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+  }
+
+  .timeline-year {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--accent-text-on-dark);
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .timeline-item h3 {
+    font-size: 19px;
+    margin-bottom: 8px;
+    text-transform: none;
+  }
+
+  .timeline-item p { font-size: 15.5px; }
+
+  .bio-text p {
+    font-size: 16.5px;
+    color: var(--text);
+    max-width: 700px;
+  }
+
+  .list-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  @media (max-width: 720px) {
+    .list-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  .list-block h3 {
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    color: var(--accent-text-on-dark);
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .plain-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .plain-list li {
+    padding: 11px 0;
+    border-bottom: 1px solid var(--border-soft);
+    font-size: 15px;
+    color: var(--text);
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .plain-list li:last-child { border-bottom: none; }
+
+  .plain-list .loc {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--text-tertiary);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .cta-band {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 56px 48px;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+
+  .cta-band h2 { font-size: 28px; margin-bottom: 14px; }
+  .cta-band p { font-size: 16.5px; max-width: 480px; margin: 0 auto 28px; }
+
+  @media (max-width: 600px) {
+    .cta-band { padding: 40px 24px; }
+  }
+
+  .photo-teaser-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .photo-teaser-grid img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    filter: grayscale(15%);
+    transition: filter 0.2s;
+  }
+
+  .photo-teaser-grid a:hover img { filter: grayscale(0%); }
+
+  @media (max-width: 720px) {
+    .photo-teaser-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="record-mark"><span class="ring"><span class="dot"></span></span></span>
+      DJ U-Sho
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" id="navToggle">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="photos.html">Photos</a></li>
+      <li><a href="contact.html">Booking</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-waveform" aria-hidden="true" id="heroWaveform"></div>
+  <div class="container hero-inner">
+    <span class="record-mark lg spin" aria-hidden="true"><span class="ring"><span class="dot"></span></span></span>
+    <div class="hero-text">
+      <span class="hero-pronounce">(you &middot; show)</span>
+      <h1>DJ U&#8209;Sho</h1>
+      <span class="hero-meta">Open format DJ &nbsp;&middot;&nbsp; Since 1996</span>
+    </div>
+  </div>
+  <div class="container">
+    <p class="hero-sub">Hip hop to country, 70s to today — one DJ who reads any room and keeps it moving.</p>
+    <div class="hero-cta-row">
+      <a href="contact.html" class="btn primary">Book DJ U-Sho</a>
+      <a href="photos.html" class="btn">See the photos</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What he plays</span>
+      <h2>One crate, every genre</h2>
+      <p>Open format means no lane. Whatever the room calls for, it's in the crate.</p>
+    </div>
+    <div class="crate">
+      <span class="crate-tab">Hip Hop / Rap</span>
+      <span class="crate-tab">Pop</span>
+      <span class="crate-tab">Top 40</span>
+      <span class="crate-tab">70s</span>
+      <span class="crate-tab">80s</span>
+      <span class="crate-tab">90s</span>
+      <span class="crate-tab">2000s</span>
+      <span class="crate-tab">Rock</span>
+      <span class="crate-tab">Classic Rock</span>
+      <span class="crate-tab">Reggae</span>
+      <span class="crate-tab">Dancehall</span>
+      <span class="crate-tab">EDM</span>
+      <span class="crate-tab">House</span>
+      <span class="crate-tab">Country</span>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">The story</span>
+      <h2>Thirty years behind the booth</h2>
+    </div>
+    <div class="bio-text">
+      <p>Since 1996, in the back booths of Southern California house parties, DJ U-Sho has built a career on one skill most DJs never master: knowing exactly what a room needs before it asks. Open format isn't a marketing phrase here — it's how he's worked for thirty years, moving from hip hop into classic rock into dancehall into Top 40 without ever losing the floor.</p>
+      <p>He cut his teeth in the Inland Empire scene of the late 90s, running with local promotion crews and learning the craft on actual turntables. In 2003 he moved to Las Vegas, where he spent four years behind the booth at Strip and off-Strip clubs and lounges — Risque at the Paris, Mist at TI, Rocks Lounge at Red Rock — while holding down residencies at Mickey Finnz on Fremont Street and Fundamentals. Mentorship from Las Vegas Strip resident DJs sharpened his sets and his ear.</p>
+      <p>Back in Southern California from 2007 to 2012, he played rooms across LA, Orange County, and the Inland Empire, building a Flyball LA residency along the way. When the world went quiet during the pandemic, he kept the music going on Twitch, streaming sets to a crowd that couldn't gather in person.</p>
+      <p>Now based in the St Louis, Missouri area, DJ U-Sho still plays the same role he always has: the DJ who can walk into a wedding, a corporate event, a bar, or a private party and read exactly what the night calls for — and is available to do it for yours.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="timeline-year">1996</span>
+        <h3>Southern California / Inland Empire</h3>
+        <p>Started DJing, learning the craft on turntables and cutting his teeth in the local party scene.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2003 &ndash; 2007</span>
+        <h3>Las Vegas, NV</h3>
+        <p>Spent four years DJing bars, clubs, and special events on and off the Strip.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2007 &ndash; 2012</span>
+        <h3>LA / OC / Inland Empire</h3>
+        <p>Moved back to California, playing venues across the LA, Orange County, and Inland Empire scene.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2020</span>
+        <h3>Online via Twitch</h3>
+        <p>Kept the sets going through the pandemic, livestreaming to a crowd that couldn't gather in person.</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">Today</span>
+        <h3>St Louis, MO</h3>
+        <p>Based in the St Louis area and available for private events near and far.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Where he's played</span>
+      <h2>Residencies &amp; venues</h2>
+    </div>
+    <div class="list-grid">
+      <div class="list-block">
+        <h3>Past residencies</h3>
+        <ul class="plain-list">
+          <li><span>Flyball LA</span><span class="loc">Los Angeles, CA</span></li>
+          <li><span>Fundamentals</span><span class="loc">Las Vegas, NV</span></li>
+          <li><span>Mickey Finnz</span><span class="loc">Downtown Las Vegas, NV</span></li>
+        </ul>
+      </div>
+      <div class="list-block">
+        <h3>Notable venues</h3>
+        <ul class="plain-list">
+          <li><span>Risque &mdash; Paris Hotel &amp; Casino</span><span class="loc">Las Vegas</span></li>
+          <li><span>Mist &mdash; TI Hotel &amp; Casino</span><span class="loc">Las Vegas</span></li>
+          <li><span>Chrome Showroom &mdash; Santa Fe Station</span><span class="loc">Las Vegas</span></li>
+          <li><span>Rocks Lounge &mdash; Red Rock Station</span><span class="loc">Las Vegas</span></li>
+          <li><span>Satay Grill</span><span class="loc">Las Vegas</span></li>
+          <li><span>Emergency Room</span><span class="loc">Las Vegas</span></li>
+          <li><span>Sindbadz Lounge</span><span class="loc">Las Vegas</span></li>
+          <li><span>Corner Office</span><span class="loc">Costa Mesa, CA</span></li>
+          <li><span>Que Sera</span><span class="loc">Long Beach, CA</span></li>
+          <li><span>Grand Star Jazz Club</span><span class="loc">Los Angeles, CA</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Beyond the club</span>
+      <h2>Special events</h2>
+    </div>
+    <ul class="plain-list" style="max-width: 640px;">
+      <li><span>Magic Convention</span><span class="loc">Myspace Booth</span></li>
+      <li><span>Olympia Convention</span><span class="loc">Muscletech Booth</span></li>
+      <li><span>Blk Magik Clothing &amp; B-Boy Expo</span><span class="loc"></span></li>
+      <li><span>Private &amp; brand events</span><span class="loc">Lululemon OC &middot; Lazy Dog Restaurants</span></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">A look back</span>
+      <h2>From the booth</h2>
+    </div>
+    <div class="photo-teaser-grid">
+      <a href="photos.html"><img src="images/recent_03.jpg" alt="DJ U-Sho performing at an outdoor rooftop event" loading="lazy"></a>
+      <a href="photos.html"><img src="images/laoc_01.jpg" alt="DJ U-Sho performing with a DJ U-Sho branded laptop sticker" loading="lazy"></a>
+      <a href="photos.html"><img src="images/vegas_06.jpg" alt="DJ U-Sho DJing at a Las Vegas venue" loading="lazy"></a>
+      <a href="photos.html"><img src="images/1996_early.jpg" alt="DJ U-Sho's earliest DJ photo from 1996" loading="lazy"></a>
+    </div>
+    <div style="text-align:center; margin-top: 28px;">
+      <a href="photos.html" class="btn">View all photos</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta-band">
+      <h2>Available for private events</h2>
+      <p>Weddings, corporate events, clubs, and private parties — DJ U-Sho brings thirty years of reading a room to yours.</p>
+      <a href="contact.html" class="btn primary">Book DJ U-Sho</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-brand">DJ U-SHO &middot; OPEN FORMAT DJ &middot; EST. 1996</span>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="photos.html">Photos</a></li>
+      <li><a href="contact.html">Booking</a></li>
+      <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+
+  const wf = document.getElementById('heroWaveform');
+  if (wf) {
+    const bars = 42;
+    let html = '';
+    for (let i = 0; i < bars; i++) {
+      const h = 15 + Math.round(Math.sin(i * 0.7) * 25 + Math.random() * 30);
+      html += `<span style="height:${Math.max(8, h)}%"></span>`;
+    }
+    wf.innerHTML = html;
+  }
+</script>
+
+</body>
+</html>

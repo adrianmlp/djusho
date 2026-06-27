@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking — DJ U-Sho</title>
+<meta name="description" content="Book DJ U-Sho for your wedding, club night, private party, or corporate event.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+
+  .page-head {
+    padding: 64px 0 40px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .page-head h1 { font-size: clamp(32px, 5vw, 46px); margin-bottom: 12px; }
+  .page-head p { font-size: 17px; max-width: 560px; }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  @media (max-width: 800px) {
+    .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .contact-side h2 { font-size: 22px; margin-bottom: 16px; }
+  .contact-side p { font-size: 15.5px; }
+
+  .contact-detail-list {
+    list-style: none;
+    margin: 28px 0 0;
+    padding: 0;
+  }
+
+  .contact-detail-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 14px 0;
+    border-top: 1px solid var(--border-soft);
+    font-size: 14.5px;
+    color: var(--text-secondary);
+  }
+
+  .contact-detail-list li:first-child { border-top: none; }
+
+  .contact-detail-list .label {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    min-width: 90px;
+  }
+
+  form { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px; }
+
+  @media (max-width: 480px) { form { padding: 24px; } }
+
+  .field { margin-bottom: 20px; }
+  .field label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    background: var(--bg-deep);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    padding: 12px 14px;
+    font-family: var(--font-body);
+    font-size: 15px;
+  }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    border-color: var(--accent);
+    outline: none;
+  }
+
+  .field textarea { min-height: 120px; resize: vertical; }
+
+  .row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 480px) { .row-2 { grid-template-columns: 1fr; } }
+
+  .form-submit {
+    width: 100%;
+    justify-content: center;
+    margin-top: 6px;
+  }
+
+  .form-status {
+    margin-top: 16px;
+    padding: 14px 16px;
+    border-radius: var(--radius-sm);
+    background: rgba(55, 138, 221, 0.12);
+    border: 1px solid var(--accent-dim);
+    color: var(--accent-text-on-dark);
+    font-size: 14px;
+    display: none;
+  }
+
+  .form-status.show { display: block; }
+
+  .form-note {
+    font-size: 12.5px;
+    color: var(--text-tertiary);
+    margin-top: 14px;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="record-mark"><span class="ring"><span class="dot"></span></span></span>
+      DJ U-Sho
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" id="navToggle">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="photos.html">Photos</a></li>
+      <li><a href="contact.html" class="active">Booking</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="page-head">
+  <div class="container">
+    <span class="eyebrow">Get in touch</span>
+    <h1>Book DJ U-Sho</h1>
+    <p>Weddings, private parties, clubs, corporate events — tell me about your night and I'll get back to you.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="contact-layout">
+
+      <div class="contact-side">
+        <h2>Let's talk about your event</h2>
+        <p>Open format means your event isn't locked into one sound. Send over the details — date, vibe, crowd — and I'll follow up to talk through the right set for your night.</p>
+
+        <ul class="contact-detail-list">
+          <li><span class="label">Based in</span><span>St Louis, MO area &middot; available for travel</span></li>
+          <li><span class="label">Events</span><span>Weddings, clubs, private parties, corporate</span></li>
+          <li><span class="label">Instagram</span><span><a href="https://instagram.com" target="_blank" rel="noopener">Follow on Instagram &rarr;</a></span></li>
+        </ul>
+      </div>
+
+      <form id="bookingForm">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="eventDate">Event date</label>
+            <input type="date" id="eventDate" name="eventDate">
+          </div>
+          <div class="field">
+            <label for="eventType">Event type</label>
+            <select id="eventType" name="eventType">
+              <option value="">Select one</option>
+              <option value="wedding">Wedding</option>
+              <option value="club">Club night</option>
+              <option value="private">Private party</option>
+              <option value="corporate">Corporate</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="location">Location</label>
+          <input type="text" id="location" name="location" placeholder="City, venue, or address">
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me about your event — vibe, crowd, must-play songs, anything that helps."></textarea>
+        </div>
+        <button type="submit" class="btn primary form-submit">Send booking request</button>
+        <p class="form-status" id="formStatus">Thanks — your message has been noted. (This form is a working demo — connect it to an email service like Formspree to receive real submissions.)</p>
+        <p class="form-note">Fields marked required are name and email. Responses usually go out within a few days.</p>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-brand">DJ U-SHO &middot; OPEN FORMAT DJ &middot; EST. 1996</span>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="photos.html">Photos</a></li>
+      <li><a href="contact.html">Booking</a></li>
+      <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+
+  const form = document.getElementById('bookingForm');
+  const status = document.getElementById('formStatus');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    status.classList.add('show');
+    form.reset();
+  });
+</script>
+
+</body>
+</html>

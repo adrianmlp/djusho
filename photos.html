@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photos — DJ U-Sho</title>
+<meta name="description" content="Photos of DJ U-Sho from 1996 to today — Southern California, Las Vegas, and beyond.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+
+  .page-head {
+    padding: 64px 0 40px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .page-head h1 { font-size: clamp(32px, 5vw, 46px); margin-bottom: 12px; }
+  .page-head p { font-size: 17px; max-width: 560px; }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .gallery-grid.featured {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-item {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    cursor: zoom-in;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-item.tall img { aspect-ratio: 3/4; }
+
+  .gallery-item:hover img { transform: scale(1.04); }
+
+  .gallery-caption {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 10px 12px;
+    background: linear-gradient(to top, rgba(13,14,16,0.85), transparent);
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: #fff;
+    letter-spacing: 0.03em;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .gallery-item:hover .gallery-caption { opacity: 1; }
+
+  @media (max-width: 720px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid.featured { grid-template-columns: 1fr; }
+  }
+
+  .era-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+
+  .era-head h2 { font-size: 22px; }
+  .era-range {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.06em;
+  }
+
+  /* lightbox */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(8,9,10,0.94);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 24px;
+  }
+
+  .lightbox.open { display: flex; }
+
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: var(--radius-sm);
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-caption {
+    position: absolute;
+    bottom: 24px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="record-mark"><span class="ring"><span class="dot"></span></span></span>
+      DJ U-Sho
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" id="navToggle">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="photos.html" class="active">Photos</a></li>
+      <li><a href="contact.html">Booking</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="page-head">
+  <div class="container">
+    <span class="eyebrow">Gallery</span>
+    <h1>Three decades, two coasts, one booth</h1>
+    <p>A look back through the sets — from 1996 to today.</p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="era-head">
+      <h2>Featured</h2>
+    </div>
+    <div class="gallery-grid featured">
+      <div class="gallery-item tall" data-full="images/recent_03.jpg" data-caption="Rooftop event, recent years">
+        <img src="images/recent_03.jpg" alt="DJ U-Sho performing at an outdoor rooftop event with red rock desert backdrop" loading="lazy">
+        <span class="gallery-caption">Rooftop event &middot; recent years</span>
+      </div>
+      <div class="gallery-item" data-full="images/laoc_01.jpg" data-caption="DJ U-Sho branded setup, LA/OC era">
+        <img src="images/laoc_01.jpg" alt="DJ U-Sho performing with a DJ U-Sho branded laptop sticker, red lighting" loading="lazy">
+        <span class="gallery-caption">DJ U-Sho branded set &middot; 2008&ndash;2012</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="era-head">
+      <h2>Where it started</h2>
+      <span class="era-range">1996</span>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-full="images/1996_early.jpg" data-caption="One of the earliest photos, 1996">
+        <img src="images/1996_early.jpg" alt="DJ U-Sho's earliest known DJ photo from 1996, mixing on turntables" loading="lazy">
+        <span class="gallery-caption">1996 &middot; one of the earliest shots</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="era-head">
+      <h2>Las Vegas</h2>
+      <span class="era-range">2003 &ndash; 2007</span>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-full="images/vegas_01.jpg" data-caption="MAGIC Convention, MTV Casting booth">
+        <img src="images/vegas_01.jpg" alt="DJ U-Sho DJing at the MTV Casting booth during the MAGIC Convention" loading="lazy">
+        <span class="gallery-caption">MAGIC Convention &middot; MTV Casting</span>
+      </div>
+      <div class="gallery-item" data-full="images/vegas_02.jpg" data-caption="MAGIC Convention booth">
+        <img src="images/vegas_02.jpg" alt="DJ U-Sho DJing with another DJ at the MAGIC Convention" loading="lazy">
+        <span class="gallery-caption">MAGIC Convention</span>
+      </div>
+      <div class="gallery-item" data-full="images/vegas_03.jpg" data-caption="Lounge set, Las Vegas">
+        <img src="images/vegas_03.jpg" alt="DJ U-Sho DJing in a red-walled Las Vegas lounge" loading="lazy">
+        <span class="gallery-caption">Las Vegas lounge</span>
+      </div>
+      <div class="gallery-item" data-full="images/vegas_04.jpg" data-caption="Las Vegas venue, red lighting">
+        <img src="images/vegas_04.jpg" alt="DJ U-Sho DJing in red lighting at a Las Vegas venue" loading="lazy">
+        <span class="gallery-caption">Las Vegas</span>
+      </div>
+      <div class="gallery-item" data-full="images/vegas_05.jpg" data-caption="Las Vegas set">
+        <img src="images/vegas_05.jpg" alt="DJ U-Sho DJing" loading="lazy">
+        <span class="gallery-caption">Las Vegas</span>
+      </div>
+      <div class="gallery-item" data-full="images/vegas_06.jpg" data-caption="Hotel venue set, Las Vegas">
+        <img src="images/vegas_06.jpg" alt="DJ U-Sho DJing at a Las Vegas hotel venue" loading="lazy">
+        <span class="gallery-caption">Las Vegas</span>
+      </div>
+      <div class="gallery-item" data-full="images/vegas_07.jpg" data-caption="Las Vegas, low light set">
+        <img src="images/vegas_07.jpg" alt="DJ U-Sho DJing under colored lighting" loading="lazy">
+        <span class="gallery-caption">Las Vegas</span>
+      </div>
+      <div class="gallery-item" data-full="images/vegas_08.jpg" data-caption="Olympia Convention, Muscletech booth">
+        <img src="images/vegas_08.jpg" alt="DJ U-Sho DJing at the Muscletech booth during the Olympia Convention" loading="lazy">
+        <span class="gallery-caption">Olympia Convention &middot; Muscletech</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="era-head">
+      <h2>Back in LA / OC</h2>
+      <span class="era-range">2008 &ndash; 2012</span>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-full="images/laoc_02.jpg" data-caption="LA/OC era set">
+        <img src="images/laoc_02.jpg" alt="DJ U-Sho DJing with another DJ in an LA/OC venue" loading="lazy">
+        <span class="gallery-caption">LA / OC</span>
+      </div>
+      <div class="gallery-item" data-full="images/laoc_03.jpg" data-caption="Brick wall venue set">
+        <img src="images/laoc_03.jpg" alt="DJ U-Sho DJing in front of a brick wall with a dancing crowd" loading="lazy">
+        <span class="gallery-caption">LA / OC</span>
+      </div>
+      <div class="gallery-item" data-full="images/laoc_04.jpg" data-caption="Velvet curtain lounge venue">
+        <img src="images/laoc_04.jpg" alt="DJ U-Sho DJing in front of red velvet curtains" loading="lazy">
+        <span class="gallery-caption">LA / OC</span>
+      </div>
+      <div class="gallery-item" data-full="images/laoc_05.jpg" data-caption="LA/OC era set">
+        <img src="images/laoc_05.jpg" alt="DJ U-Sho DJing under warm lighting" loading="lazy">
+        <span class="gallery-caption">LA / OC</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="era-head">
+      <h2>Brand &amp; private events</h2>
+      <span class="era-range">Mid-2010s</span>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" data-full="images/brand_01.jpg" data-caption="Lululemon Orange County CrossFit event">
+        <img src="images/brand_01.jpg" alt="DJ U-Sho DJing at a Lululemon Orange County CrossFit event" loading="lazy">
+        <span class="gallery-caption">Lululemon OC &middot; CrossFit event</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="container">
+    <div class="era-head">
+      <h2>Today</h2>
+      <span class="era-range">St Louis &amp; corporate events</span>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item tall" data-full="images/recent_02.jpg" data-caption="Lazy Dog Restaurant corporate event">
+        <img src="images/recent_02.jpg" alt="DJ U-Sho DJing in a cowboy hat at a Lazy Dog Restaurant corporate event" loading="lazy">
+        <span class="gallery-caption">Lazy Dog corporate event</span>
+      </div>
+      <div class="gallery-item tall" data-full="images/recent_01.jpg" data-caption="Lazy Dog Restaurant private event">
+        <img src="images/recent_01.jpg" alt="DJ U-Sho DJing at a private event venue" loading="lazy">
+        <span class="gallery-caption">Lazy Dog corporate event</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta-band" style="background: var(--surface); border-radius: var(--radius-lg); padding: 56px 48px; text-align: center; border: 1px solid var(--border);">
+      <h2 style="font-size:28px; margin-bottom:14px;">Ready to book your event?</h2>
+      <p style="font-size:16.5px; max-width:480px; margin:0 auto 28px; color:var(--text-secondary);">Tell DJ U-Sho about your night and get a response soon.</p>
+      <a href="contact.html" class="btn primary">Book DJ U-Sho</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span class="footer-brand">DJ U-SHO &middot; OPEN FORMAT DJ &middot; EST. 1996</span>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="photos.html">Photos</a></li>
+      <li><a href="contact.html">Booking</a></li>
+      <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+    </ul>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <img src="" alt="" id="lightboxImg">
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => {
+      lightboxImg.src = item.getAttribute('data-full');
+      lightboxImg.alt = item.querySelector('img').alt;
+      lightboxCaption.textContent = item.getAttribute('data-caption') || '';
+      lightbox.classList.add('open');
+    });
+  });
+
+  function closeLightbox() { lightbox.classList.remove('open'); lightboxImg.src=''; }
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
