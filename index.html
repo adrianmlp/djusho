@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DJ U-Sho — Open Format DJ | Hip Hop, Rock, Top 40, EDM &amp; More</title>
-<meta name="description" content="DJ U-Sho (pronounced 'you-show') is an open format DJ based in St Louis, MO, with 30 years of experience spinning hip hop, rock, Top 40, EDM, country and more. Available for weddings, clubs, and private events.">
+<meta name="description" content="DJ U-Sho (pronounced 'you-show') is an open format DJ based in St Louis Metro, MO, with 25 years of experience spinning hip hop, rock, Top 40, EDM, country and more. Available for weddings, clubs, and private events.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -232,6 +232,57 @@
   @media (max-width: 720px) {
     .photo-teaser-grid { grid-template-columns: repeat(2, 1fr); }
   }
+
+  .carousel {
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, #000 18%, #000 82%, transparent);
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: carousel-scroll 30s linear infinite;
+  }
+
+  .carousel:hover .carousel-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes carousel-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .carousel-item {
+    flex: 0 0 auto;
+    width: 260px;
+  }
+
+  .carousel-item img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
+    display: block;
+  }
+
+  .carousel-caption {
+    margin-top: 10px;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.04em;
+    color: var(--text-tertiary);
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .carousel-item { width: 200px; }
+    .carousel-item img { height: 150px; }
+  }
 </style>
 </head>
 <body>
@@ -245,7 +296,6 @@
     <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" id="navToggle">&#9776;</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="photos.html">Photos</a></li>
       <li><a href="contact.html">Booking</a></li>
     </ul>
   </nav>
@@ -265,7 +315,6 @@
     <p class="hero-sub">Hip hop to country, 70s to today — one DJ who reads any room and keeps it moving.</p>
     <div class="hero-cta-row">
       <a href="contact.html" class="btn primary">Book DJ U-Sho</a>
-      <a href="photos.html" class="btn">See the photos</a>
     </div>
   </div>
 </section>
@@ -289,9 +338,14 @@
       <span class="crate-tab">Classic Rock</span>
       <span class="crate-tab">Reggae</span>
       <span class="crate-tab">Dancehall</span>
+      <span class="crate-tab">Moombahton</span>
       <span class="crate-tab">EDM</span>
       <span class="crate-tab">House</span>
       <span class="crate-tab">Country</span>
+      <span class="crate-tab">Disco</span>
+      <span class="crate-tab">Funk</span>
+      <span class="crate-tab">Soul</span>
+      <span class="crate-tab">R&amp;B</span>
     </div>
   </div>
 </section>
@@ -302,12 +356,12 @@
       <span class="eyebrow">The story</span>
       <h2>Thirty years behind the booth</h2>
     </div>
-    <div class="bio-text">
-      <p>Since 1996, in the back booths of Southern California house parties, DJ U-Sho has built a career on one skill most DJs never master: knowing exactly what a room needs before it asks. Open format isn't a marketing phrase here — it's how he's worked for thirty years, moving from hip hop into classic rock into dancehall into Top 40 without ever losing the floor.</p>
-      <p>He cut his teeth in the Inland Empire scene of the late 90s, running with local promotion crews and learning the craft on actual turntables. In 2003 he moved to Las Vegas, where he spent four years behind the booth at Strip and off-Strip clubs and lounges — Risque at the Paris, Mist at TI, Rocks Lounge at Red Rock — while holding down residencies at Mickey Finnz on Fremont Street and Fundamentals. Mentorship from Las Vegas Strip resident DJs sharpened his sets and his ear.</p>
-      <p>Back in Southern California from 2007 to 2012, he played rooms across LA, Orange County, and the Inland Empire, building a Flyball LA residency along the way. When the world went quiet during the pandemic, he kept the music going on Twitch, streaming sets to a crowd that couldn't gather in person.</p>
-      <p>Now based in the St Louis, Missouri area, DJ U-Sho still plays the same role he always has: the DJ who can walk into a wedding, a corporate event, a bar, or a private party and read exactly what the night calls for — and is available to do it for yours.</p>
-    </div>
+<div class="bio-text">
+  <p>Since touching his first turntable and mixer in 1996, DJ U-Sho has been obsessed with one thing: reading a crowd and moving a dance floor. He spent those early years immersed in the Inland Empire hip hop scene — promoting and throwing events with a local crew, learning what makes a crowd move from the floor up — while honing his craft on actual vinyl. By the early 2000s, he'd moved from promoting to the booth, building the open format skills that let him move from hip hop into classic rock into dancehall into Top 40 without ever losing the floor.</p>
+  <p>He moved to Las Vegas in 2000, where he spent years in the clubs, mentored by Las Vegas Strip DJs. He played clubs and lounges on and off the Strip — Risque at the Paris, Mist at TI, Rocks Lounge at Red Rock — while holding down residencies at Mickey Finnz on Fremont Street and Fundamentals at the Aloha Bar. He also picked up convention bookings during this stretch, bringing his sets to the city's biggest trade shows and expos.</p>
+  <p>Back in Southern California from 2007 to 2017, he played rooms across LA, Orange County, and the Inland Empire, while holding a residency at Flyball LA — "a party uniquely LA." Alongside the club scene, he picked up corporate and brand events, including events for Lululemon Orange County, showing the same skill set worked just as well outside the nightclub. When the world went quiet during the pandemic, he kept the music going on Twitch, streaming sets to a crowd that couldn't gather in person.</p>
+  <p>Now based in Franklin County in the St Louis metro area, DJ U-Sho still plays the same role he always has: the DJ who can walk into a wedding, a corporate event, a bar, or a private party and read exactly what the night calls for. Locally, that's meant private events leaning into classic rock and country — proof that an open format DJ can move just as easily through a Midwest crowd as a Vegas nightclub — and he's available to do it for yours.</p>
+</div>
   </div>
 </section>
 
@@ -320,12 +374,12 @@
         <p>Started DJing, learning the craft on turntables and cutting his teeth in the local party scene.</p>
       </div>
       <div class="timeline-item">
-        <span class="timeline-year">2003 &ndash; 2007</span>
+        <span class="timeline-year">2000 &ndash; 2007</span>
         <h3>Las Vegas, NV</h3>
-        <p>Spent four years DJing bars, clubs, and special events on and off the Strip.</p>
+        <p>Spent many years DJing bars, clubs, and special events on and off the Strip.</p>
       </div>
       <div class="timeline-item">
-        <span class="timeline-year">2007 &ndash; 2012</span>
+        <span class="timeline-year">2007 &ndash; 2017</span>
         <h3>LA / OC / Inland Empire</h3>
         <p>Moved back to California, playing venues across the LA, Orange County, and Inland Empire scene.</p>
       </div>
@@ -337,7 +391,7 @@
       <div class="timeline-item">
         <span class="timeline-year">Today</span>
         <h3>St Louis, MO</h3>
-        <p>Based in the St Louis area and available for private events near and far.</p>
+        <p>Based in Franklin County, St Louis Metro area and available for private events near and far.</p>
       </div>
     </div>
   </div>
@@ -371,6 +425,10 @@
           <li><span>Corner Office</span><span class="loc">Costa Mesa, CA</span></li>
           <li><span>Que Sera</span><span class="loc">Long Beach, CA</span></li>
           <li><span>Grand Star Jazz Club</span><span class="loc">Los Angeles, CA</span></li>
+          <li><span>El Cid</span><span class="loc">Los Angeles, CA</span></li>
+          <li><span>L' Scorpion</span><span class="loc">Hollywood, CA</span></li>
+          <li><span>Continental Room</span><span class="loc">Fullerton, CA</span></li>
+          <li><span>The Bungalow</span><span class="loc">Huntington Beach, CA</span></li>
         </ul>
       </div>
     </div>
@@ -392,20 +450,88 @@
   </div>
 </section>
 
-<section>
+
+<section class="tight">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">A look back</span>
       <h2>From the booth</h2>
     </div>
-    <div class="photo-teaser-grid">
-      <a href="photos.html"><img src="images/recent_03.jpg" alt="DJ U-Sho performing at an outdoor rooftop event" loading="lazy"></a>
-      <a href="photos.html"><img src="images/laoc_01.jpg" alt="DJ U-Sho performing with a DJ U-Sho branded laptop sticker" loading="lazy"></a>
-      <a href="photos.html"><img src="images/vegas_06.jpg" alt="DJ U-Sho DJing at a Las Vegas venue" loading="lazy"></a>
-      <a href="photos.html"><img src="images/1996_early.jpg" alt="DJ U-Sho's earliest DJ photo from 1996" loading="lazy"></a>
-    </div>
-    <div style="text-align:center; margin-top: 28px;">
-      <a href="photos.html" class="btn">View all photos</a>
+  </div>
+  <div class="carousel">
+    <div class="carousel-track">
+      <div class="carousel-item">
+        <img src="images/Olympia_Conv.jpg" alt="DJ U-Sho at the Olympia Convention in Las Vegas, NV" loading="lazy">
+        <p class="carousel-caption">Olympia Convention &middot; Las Vegas, NV</p>
+      </div>
+      <div class="carousel-item">
+        <img src="images/Magic_Convention.JPG" alt="DJ U-Sho at the Magic Convention in Las Vegas, NV" loading="lazy">
+        <p class="carousel-caption">Magic Convention &middot; Las Vegas, NV</p>
+      </div>
+      <div class="carousel-item">
+        <img src="images/Priv_Austin.jpg" alt="DJ U-Sho at a corporate event in Austin, TX" loading="lazy">
+        <p class="carousel-caption">Corporate Event &middot; Austin, TX</p>
+      </div>
+      <div class="carousel-item">
+        <img src="images/Prov_StGeorge.jpg" alt="DJ U-Sho at a corporate event in St George, UT" loading="lazy">
+        <p class="carousel-caption">Corporate Event &middot; St George, UT</p>
+      </div>
+      <div class="carousel-item">
+        <img src="images/Beginning1996.jpg" alt="DJ U-Sho's earliest known DJ photo from 1996" loading="lazy">
+        <p class="carousel-caption">The Beginning &middot; 1996</p>
+      </div>
+      <div class="carousel-item">
+        <img src="images/FlyBallLA.jpg" alt="DJ U-Sho at Fly Ball LA in Los Angeles, CA" loading="lazy">
+        <p class="carousel-caption">Fly Ball LA &middot; Los Angeles, CA</p>
+      </div>
+      <div class="carousel-item">
+        <img src="images/Myst_LV.JPG" alt="DJ U-Sho at Myst Lounge in Las Vegas, NV" loading="lazy">
+        <p class="carousel-caption">Myst Lounge &middot; Las Vegas, NV</p>
+      </div>
+      <div class="carousel-item">
+        <img src="images/Bungalow.jpg" alt="DJ U-Sho at The Bungalow in Huntington Beach, CA" loading="lazy">
+        <p class="carousel-caption">The Bungalow &middot; Huntington Beach, CA</p>
+      </div>
+      <div class="carousel-item">
+        <img src="images/Lululemon.JPG" alt="DJ U-Sho at a Lululemon event in Costa Mesa, CA" loading="lazy">
+        <p class="carousel-caption">Lululemon Event &middot; Costa Mesa, CA</p>
+      </div>
+      <div class="carousel-item">
+        <img src="images/Olympia_Conv.jpg" alt="DJ U-Sho at the Olympia Convention in Las Vegas, NV" loading="lazy">
+        <p class="carousel-caption">Olympia Convention &middot; Las Vegas, NV</p>
+      </div>
+      <div class="carousel-item">
+        <img src="images/Magic_Convention.JPG" alt="DJ U-Sho at the Magic Convention in Las Vegas, NV" loading="lazy">
+        <p class="carousel-caption">Magic Convention &middot; Las Vegas, NV</p>
+      </div>
+      <div class="carousel-item">
+        <img src="images/Priv_Austin.jpg" alt="DJ U-Sho at a corporate event in Austin, TX" loading="lazy">
+        <p class="carousel-caption">Corporate Event &middot; Austin, TX</p>
+      </div>
+      <div class="carousel-item">
+        <img src="images/Prov_StGeorge.jpg" alt="DJ U-Sho at a corporate event in St George, UT" loading="lazy">
+        <p class="carousel-caption">Corporate Event &middot; St George, UT</p>
+      </div>
+      <div class="carousel-item">
+        <img src="images/Beginning1996.jpg" alt="DJ U-Sho's earliest known DJ photo from 1996" loading="lazy">
+        <p class="carousel-caption">The Beginning &middot; 1996</p>
+      </div>
+      <div class="carousel-item">
+        <img src="images/FlyBallLA.jpg" alt="DJ U-Sho at Fly Ball LA in Los Angeles, CA" loading="lazy">
+        <p class="carousel-caption">Fly Ball LA &middot; Los Angeles, CA</p>
+      </div>
+      <div class="carousel-item">
+        <img src="images/Myst_LV.JPG" alt="DJ U-Sho at Myst Lounge in Las Vegas, NV" loading="lazy">
+        <p class="carousel-caption">Myst Lounge &middot; Las Vegas, NV</p>
+      </div>
+      <div class="carousel-item">
+        <img src="images/Bungalow.jpg" alt="DJ U-Sho at The Bungalow in Huntington Beach, CA" loading="lazy">
+        <p class="carousel-caption">The Bungalow &middot; Huntington Beach, CA</p>
+      </div>
+      <div class="carousel-item">
+        <img src="images/Lululemon.JPG" alt="DJ U-Sho at a Lululemon event in Costa Mesa, CA" loading="lazy">
+        <p class="carousel-caption">Lululemon Event &middot; Costa Mesa, CA</p>
+      </div>
     </div>
   </div>
 </section>
@@ -425,7 +551,6 @@
     <span class="footer-brand">DJ U-SHO &middot; OPEN FORMAT DJ &middot; EST. 1996</span>
     <ul class="footer-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="photos.html">Photos</a></li>
       <li><a href="contact.html">Booking</a></li>
       <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
     </ul>
