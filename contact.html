@@ -170,7 +170,9 @@
         </ul>
       </div>
 
-      <form id="bookingForm">
+      <form id="bookingForm" action="https://formspree.io/f/mgojzpzq" method="POST">
+        <input type="hidden" name="_subject" value="New booking request from DJ U-Sho website">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
         <div class="field">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" required>
@@ -205,7 +207,8 @@
           <textarea id="message" name="message" placeholder="Tell me about your event — vibe, crowd, must-play songs, anything that helps."></textarea>
         </div>
         <button type="submit" class="btn primary form-submit">Send booking request</button>
-        <p class="form-status" id="formStatus">Thanks — your message has been noted. (This form is a working demo — connect it to an email service like Formspree to receive real submissions.)</p>
+        <p class="form-status" id="formStatus">Thanks — your message has been sent. I'll get back to you within a few days.</p>
+        <p class="form-status" id="formError" style="background: rgba(220,53,69,0.12); border-color: #dc3545;">Something went wrong sending your message. Please try again or reach out on Instagram.</p>
         <p class="form-note">Fields marked required are name and email. Responses usually go out within a few days.</p>
       </form>
 
@@ -234,10 +237,25 @@
 
   const form = document.getElementById('bookingForm');
   const status = document.getElementById('formStatus');
+  const error = document.getElementById('formError');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    status.classList.add('show');
-    form.reset();
+    status.classList.remove('show');
+    error.classList.remove('show');
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+      .then((response) => {
+        if (response.ok) {
+          status.classList.add('show');
+          form.reset();
+        } else {
+          error.classList.add('show');
+        }
+      })
+      .catch(() => error.classList.add('show'));
   });
 </script>
 
